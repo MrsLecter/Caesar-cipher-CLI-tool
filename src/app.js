@@ -1,24 +1,9 @@
-const express = require('express');
-const swaggerUI = require('swagger-ui-express');
-const path = require('path');
-const YAML = require('yamljs');
-const userRouter = require('./resources/users/user.router');
+// const fileTransform = require('./resources/caesar/caesar.fileTransform');
+// const stdinTransform = require('./modules/stdinTransform');
+// const options = require('./resources/caesar/caesar.commanderSettings');
 
-const app = express();
-const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
+// const shift = options.action === 'encode' ? +args.shift : -args.shift;
+// const { input, output,  } = args;
 
-app.use(express.json());
-
-app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-
-app.use('/', (req, res, next) => {
-  if (req.originalUrl === '/') {
-    res.send('Service is running!');
-    return;
-  }
-  next();
-});
-
-app.use('/users', userRouter);
-
-module.exports = app;
+// fileTransform(input, output, shift);
+// fileTransform();
